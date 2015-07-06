@@ -9,7 +9,9 @@ if len(sys.argv) != 1:
         print "Usage: hosts.py --list"
         exit(1)
 
-inventory_in = file('hosts_inverted.ini')
+inventory_file_name = sys.argv[0].rstrip('.py') + '.ini'
+
+inventory_in = file(inventory_file_name)
 inventory_out = {'_meta': { 'hostvars' : {} }}
 
 def add_host(group, host_line):
