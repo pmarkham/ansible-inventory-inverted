@@ -59,6 +59,9 @@ for line in inventory_in:
        elif ':parents' in line:
            current_group = current_group.rsplit(":", 1)[0]
            current_state = 'parents'
+       elif ':' in line:
+        print "Line: %4d - Syntax error: no idea what to do with this line." % (line_num)
+        exit(1)
        continue
     if current_state == 'host':
         add_host(current_group, line)
